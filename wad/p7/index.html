@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .item1 {
+            grid-area: header;
+        }
+
+        .item2 {
+            grid-area: menu;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item3 {
+            grid-area: main;
+        }
+
+        .item4 {
+            grid-area: right;
+        }
+
+        .item5 {
+            grid-area: footer;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas: 'header header header header header header'
+                'menu main main main main right' 'menu footer footer footer footer footer ';
+            gap: 10px;
+            background-color: aqua;
+            padding: 10px;
+        }
+
+        .grid-container>div {
+            background-color: gold;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: darkorange;
+            margin: 2px;
+            color: darkmagenta;
+        }
+
+        a:hover {
+            background-color: yellow;
+            color: blue;
+        }
+
+        h1 {
+            font-size: 30px;
+            text-decoration: underline;
+        }
+
+        form>div {
+            font-size: 30px;
+            text-decoration: underline;
+        }
+    </style>
+
+    <title>CSS Grid</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="item1">Students Details form creation </div>
+        <div class="item2">
+            <a href="https://pdacek.ac.in/">PDA</a>
+            <a href="https://pdacek.ac.in/home/Institute">Institute</a>
+            <a href="https://pdacek.ac.in/home/Exam-Circulars">Exam circular</a>
+            <a href="https://pdacek.ac.in/home/Results">Results</a>
+        </div>
+        <div class="item3">
+            <h1>Student Details</h1>
+            <form name="student">
+                <div>
+                    name:<input type="text" name="name">
+
+                </div>
+                <div>
+                    vtuno:<input type="text" name="vtuno">
+                </div>
+                <div>
+                    gender:<input type="radio" name="gender" value="male">male<input type="radio" name="gender"
+                        value="female">female
+                </div>
+                <div>
+                    sem:
+                    <select name="sem">
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div>
+                    language completed
+                    <br>
+                    <input type="checkbox" class="lang" name="lang" value="c++">c++
+                    <input type="checkbox" class="lang" name="lang" value="java">java
+                    <input type="checkbox" class="lang" name="lang" value="python">python
+
+                </div><input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="item4">
+            Submit your details
+        </div>
+        <div class="item5">
+            program to demonstrate about css grid and form creation
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const displayDiv = document.querySelector('.item4');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            name = document.student.name.value;
+            vtuno = document.student.vtuno.value;
+            gender = document.student.gender.value;
+            sem = document.student.sem.value;
+            lang = []
+            var langSelected = document.getElementsByName('lang');
+            for (var checkbox of langSelected) {
+                if (checkbox.checkbox)
+                    lang.push(checkbox.value)
+            }
+            console.log(name, vtuno, gender, sem, lang.toString());
+            htmlStr = `
+            ${name}<br>
+            ${vtuno}<br>
+            gender:${gender}<br>
+            sem:${sem}<br>
+            ${lang.toString()}`
+            displayDiv.innerHTML = htmlStr
+            alert('your details are recorded successfully')
+            form.reset()
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Modal</title>
+<style>
+.container {
+height: 100vh;
+width: 100vw;
+background-color: rgb(71, 255, 194);
+position: relative;
+}
+.modal {
+    height: 350px;
+width: 500px;
+background-color: rgb(178, 32, 59);
+position: absolute;
+top: 20%;
+left: 10%;
+}
+
+.hide {
+display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<button class="open">click here to open</button>
+<div class="modal hide">
+<h1>Modal</h1>
+
+
+  
+<p>The modal class defines a container for a modal.<br>
+
+    The modal-content class defines the modal content.<br>
+    
+    Modal content can be any HTML element (divs, headings, paragraphs, images, etc.).
+    </p>
+    <h2>close a modal</h2>
+    <p>To close a modal, add the w3-button class to an element together with an onclick attribute that points to the id of the modal (id01). </p>
+    <img src="jsimg.jpg" alt="jsimg">
+<button class="close">click here to close</button>
+</div>
+</div>
+
+<script>
+const openBtn = document.querySelector(".open");
+const closeBtn = document.querySelector(".close");
+const modal = document.querySelector(".modal");
+openBtn.addEventListener("click", function () {
+modal.classList.remove("hide");
+});
+closeBtn.addEventListener("click", function () {
+modal.classList.add("hide");
+});
+</script>
+</body>
+</html>

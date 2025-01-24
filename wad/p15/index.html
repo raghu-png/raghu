@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Flex Box</title>
+        <style>
+            body
+            {
+                background-color: rgb(238, 199, 175);
+                display: flex;
+                flex-direction: row;
+                align-items: left;
+                justify-content: left;
+            }
+            .card{
+                background-color:rgb(68, 77, 92);
+                height: 425px;
+                width:350px;
+                border:4px solid rgb(0, 0, 0);
+            }
+            .order{
+                display:flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <!--<h3>pizza burger is one of the most tastiest food</h3>-->
+    <div class="card">
+    <img src="download.jpg" alt="burger" height="40%" width="100%"/>
+<h2>Pizza-King</h2>
+<p>  burger is made of extra cheese with veggies </p>
+<div class="order">
+<h3>$2.45</h3>
+<button class="button">Order now</button>
+</div>
+</div>
+<script>
+    const btn=document.querySelector(".button");
+    const box=document.querySelector(".order");
+    btn.addEventListener("click",function()
+    {
+        box.innerHTML="";
+        box.insertAdjacentHTML("afterbegin","<h2>ordered</h2>");
+    });
+</script>
+    </body>
+
+</html>
